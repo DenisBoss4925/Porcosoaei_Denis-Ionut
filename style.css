@@ -646,3 +646,16 @@ main > .section + .section::before {
 
   background: var(--border);
 }
+
+.award {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.award img {
+  width: 280px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
