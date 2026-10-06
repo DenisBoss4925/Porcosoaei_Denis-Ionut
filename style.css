@@ -671,15 +671,6 @@ main > .section + .section::before {
   color: var(--text);
 }
 
-.award img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin: 1rem 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
 .award .button {
   margin-top: 1rem;
   display: inline-block;
