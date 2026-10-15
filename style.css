@@ -4,9 +4,9 @@
 
 :root {
   --bg: #080b10;
-  --surface: #0e131b;
-  --surface-light: #151c27;
-
+   --surface: rgba(14, 19, 27, 0.88);
+   --surface-light: rgba(21, 28, 39, 0.94);
+   
   --text: #f1f5f9;
   --muted: #9aa6b2;
 
