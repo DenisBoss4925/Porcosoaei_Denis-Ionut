@@ -204,6 +204,15 @@ ul {
 }
 
 
+/* Grupează logo-ul și selectorul de limbă */
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+
 /* Selectează logo-ul DP. */
 .logo {
   font-size: 1.4rem;
