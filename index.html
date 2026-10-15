@@ -34,35 +34,27 @@
        Conține logo-ul, selectorul de limbă și meniul principal.
        ===================================================== -->
 
-  <header class="header">
-    <!-- Element semantic pentru antet.
-         Clasa header este folosită pentru stilizarea din CSS. -->
-       <!-- Grupul din stânga: logo și selector de limbă -->
+<!-- Headerul principal, vizibil în partea de sus a paginii -->
+<header class="header">
+
+  <!-- Grupează logo-ul și selectorul de limbă în partea stângă -->
   <div class="header-brand">
 
+    <!-- Logo-ul DP; la apăsare, pagina revine la secțiunea principală -->
     <a class="logo" href="#hero">DP</a>
-    <!-- Logo-ul format din inițialele DP.
-         href="#hero" duce la elementul care are id="hero".
-         Clasa logo îi aplică aspectul definit în CSS. -->
 
-    <!-- Selectorul dintre versiunea română și cea engleză. -->
+    <!-- Selectorul care permite trecerea între română și engleză -->
     <div class="language-switch">
-      <!-- Containerul grupează cele două linkuri de limbă. -->
 
-      <a href="index.html" class="active"
-         lang="ro" aria-current="page">RO</a>
-      <!-- Deschide versiunea română.
-           class="active" evidențiază limba selectată.
-           lang="ro" indică limba linkului.
-           aria-current="page" indică pagina curentă. -->
+      <!-- Deschide pagina în română; active indică limba curentă -->
+      <a href="index.html" class="active">RO</a>
 
-      <a href="indexEN.html" lang="en">EN</a>
-      <!-- Deschide versiunea în engleză.
-           lang="en" indică limba paginii de destinație. -->
-         </div>
-       
+      <!-- Deschide versiunea în engleză a portofoliului -->
+      <a href="indexEN.html">EN</a>
+
     </div>
-
+  </div>
+     
     <!-- Meniul principal de navigare. -->
     <nav class="nav" aria-label="Navigare principală">
       <!-- nav grupează linkurile de navigare.
