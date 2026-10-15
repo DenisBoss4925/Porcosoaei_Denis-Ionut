@@ -1010,16 +1010,6 @@ progress::-moz-progress-bar {
     /* Adaugă spațiu interior sus-jos și lateral. */
   }
 
-   
-/* Grupează logo-ul DP și selectorul de limbă într-un singur container */
-.header-brand {
-  display: flex;        /* Așază logo-ul și selectorul pe același rând */
-  align-items: center;  /* Aliniază vertical cele două elemente */
-  gap: 18px;            /* Lasă 18px spațiu între logo și selector */
-  flex-shrink: 0;       /* Împiedică micșorarea grupului dacă spațiul e limitat */
-}
-
-
   /* Selectează meniul de navigare. */
   .nav {
     flex-wrap: wrap;
