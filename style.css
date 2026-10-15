@@ -1,721 +1,1235 @@
-/* =========================
-   VARIABLES
-========================= */
+
+/* ============================================================
+   VARIABILE GLOBALE
+   :root selectează elementul rădăcină al documentului HTML.
+   Variabilele definite aici pot fi folosite în tot fișierul CSS.
+   ============================================================ */
 
 :root {
-  --bg: #080b10;
-   --surface: rgba(14, 19, 27, 0.88);
-   --surface-light: rgba(21, 28, 39, 0.94);
-   
+  --bg: #080b10; 
+  /* Culoarea principală a fundalului paginii. */
+
+  --surface: rgba(14, 19, 27, 0.88);
+  /* Fundalul cardurilor; rgba permite transparență.
+     Ultima valoare, 0.88, reprezintă opacitatea de 88%. */
+
+  --surface-light: rgba(21, 28, 39, 0.94);
+  /* Fundalul mai deschis folosit la interacțiunea cu cardurile. */
+
   --text: #f1f5f9;
+  /* Culoarea principală a textului. */
+
   --muted: #9aa6b2;
+  /* Culoarea textului secundar, mai puțin evidențiat. */
 
   --accent: #38bdf8;
+  /* Culoarea de accent: albastru deschis. */
+
   --accent-dark: #0ea5e9;
+  /* Varianta mai închisă a culorii de accent. */
 
   --border: rgba(255, 255, 255, 0.1);
+  /* Culoarea semitransparentă folosită pentru borduri. */
 
   --max-width: 1100px;
+  /* Lățimea maximă a conținutului principal. */
+
   --header-height: 70px;
+  /* Înălțimea standard a antetului. */
 }
 
 
-/* =========================
+/* ============================================================
    RESET
-========================= */
+   Elimină unele stiluri implicite ale browserului.
+   ============================================================ */
 
+/* Asteriscul selectează toate elementele HTML. */
 * {
   margin: 0;
+  /* Elimină marginile exterioare implicite. */
+
   padding: 0;
+  /* Elimină spațierea interioară implicită. */
+
   box-sizing: border-box;
+  /* Include conținutul, padding-ul și bordura în dimensiunea
+     declarată a elementului, fără a adăuga padding-ul peste ea. */
 }
 
+
+/* Selectează elementul HTML principal. */
 html {
   scroll-behavior: smooth;
+  /* Activează derularea lină atunci când navigăm către o secțiune. */
+
   scroll-padding-top: var(--header-height);
+  /* Lasă spațiu sus la navigarea către o secțiune,
+     astfel încât antetul fix să nu acopere titlul. */
 }
 
 
+/* ============================================================
+   ELEMENTE GENERALE
+   Stabilește aspectul de bază al paginii.
+   ============================================================ */
+
+/* Selectează corpul paginii, unde se află conținutul vizibil. */
 body {
   background-color: var(--bg);
+  /* Aplică fundalul definit în variabila --bg. */
+
   background-image:
+    /* Permite suprapunerea mai multor straturi de fundal. */
+
     linear-gradient(
       rgba(8, 11, 16, 0.68),
       rgba(8, 11, 16, 0.78)
     ),
+    /* Creează un strat întunecat semitransparent.
+       Prima culoare este la începutul gradientului,
+       iar a doua este la sfârșit. */
+
     url("imagini/fundal.png");
+    /* Încarcă imaginea din folderul imagini.
+       Calea este relativă la locația fișierului CSS. */
 
   background-size: cover;
+  /* Redimensionează imaginea pentru a acoperi zona disponibilă,
+     chiar dacă o parte din imagine trebuie decupată. */
+
   background-position: center;
+  /* Centrează imaginea în zona de fundal. */
+
   background-repeat: no-repeat;
+  /* Împiedică repetarea imaginii dacă aceasta este mai mică
+     decât zona de fundal. */
+
   background-attachment: fixed;
+  /* Menține fundalul fix în timpul derulării paginii. */
 
   color: var(--text);
+  /* Stabilește culoarea implicită a textului. */
+
   font-family: Arial, Helvetica, sans-serif;
+  /* Folosește Arial; dacă nu este disponibil, încearcă Helvetica,
+     apoi un font sans-serif generic. */
+
   line-height: 1.6;
+  /* Înălțimea liniei este de 1,6 ori dimensiunea fontului,
+     ceea ce face paragrafele mai ușor de citit. */
+
   min-height: 100vh;
+  /* Corpul paginii are cel puțin înălțimea ferestrei.
+     100vh înseamnă 100% din înălțimea viewportului. */
 }
 
 
-/* =========================
-   GENERAL ELEMENTS
-========================= */
-
+/* Selectează toate linkurile din pagină. */
 a {
   color: inherit;
+  /* Linkul moștenește culoarea textului elementului părinte. */
+
   text-decoration: none;
+  /* Elimină sublinierea implicită a linkurilor. */
 }
 
+
+/* Selectează toate imaginile. */
 img {
   display: block;
+  /* Face imaginea un element de tip block,
+     eliminând spațiul suplimentar de sub imaginile inline. */
+
   max-width: 100%;
+  /* Împiedică imaginea să depășească lățimea containerului. */
 }
 
+
+/* Selectează listele neordonate. */
 ul {
   list-style: none;
+  /* Elimină marcatorii impliciți, precum punctele din liste. */
 }
 
 
-/* =========================
-   HEADER
-========================= */
+/* ============================================================
+   ANTETUL PAGINII
+   Conține logo-ul, selectorul de limbă și meniul de navigare.
+   ============================================================ */
 
+/* Selectează elementul care are clasa header. */
 .header {
   position: fixed;
+  /* Fixează antetul în raport cu fereastra browserului.
+     Acesta rămâne vizibil când utilizatorul derulează pagina. */
+
   top: 0;
+  /* Poziționează antetul la marginea superioară a ferestrei. */
+
   left: 0;
+  /* Poziționează antetul la marginea stângă a ferestrei. */
 
   width: 100%;
+  /* Face antetul să ocupe întreaga lățime a ferestrei. */
+
   height: var(--header-height);
+  /* Stabilește înălțimea folosind variabila globală. */
 
   display: flex;
+  /* Activează Flexbox pentru aranjarea elementelor copil. */
+
   align-items: center;
+  /* Centrează vertical elementele din antet. */
+
   justify-content: space-between;
+  /* Distribuie spațiul liber între elementele principale. */
 
   padding: 0 5%;
+  /* Fără padding vertical și cu spațiu interior de 5%
+     din lățimea containerului la stânga și la dreapta. */
 
   background: rgba(8, 11, 16, 0.85);
+  /* Aplică un fundal întunecat cu opacitate de 85%. */
+
   backdrop-filter: blur(12px);
+  /* Estompează conținutul care se vede prin fundalul transparent.
+     Efectul este cunoscut drept blur de fundal. */
 
   border-bottom: 1px solid var(--border);
+  /* Adaugă o bordură de 1px sub antet. */
 
   z-index: 1000;
+  /* Plasează antetul deasupra elementelor cu un z-index mai mic. */
 }
 
+
+/* Selectează logo-ul DP. */
 .logo {
   font-size: 1.4rem;
+  /* Dimensiunea textului este de 1,4 ori dimensiunea fontului
+     de bază al elementului rădăcină. */
+
   font-weight: 800;
+  /* Face textul foarte îngroșat. */
+
   letter-spacing: 2px;
+  /* Adaugă 2px între caracterele textului. */
 
   color: var(--accent);
+  /* Colorează logo-ul cu nuanța de accent. */
 
   transition: 0.25s ease;
+  /* Animează proprietățile compatibile în 0,25 secunde,
+     folosind o tranziție cu accelerare și încetinire. */
 }
 
+
+/* Se aplică atunci când cursorul este deasupra logo-ului. */
 .logo:hover {
   color: var(--text);
+  /* Schimbă logo-ul în culoarea principală a textului. */
 }
 
+
+/* Selectează meniul de navigare. */
 .nav {
   display: flex;
+  /* Așază linkurile meniului pe o linie, folosind Flexbox. */
+
   gap: 1.5rem;
+  /* Lasă un spațiu de 1,5rem între linkuri. */
 }
 
+
+/* Selectează linkurile din meniu, nu toate linkurile paginii. */
 .nav a {
   color: var(--muted);
+  /* Folosește culoarea textului secundar. */
+
   font-size: 0.9rem;
+  /* Reduce dimensiunea fontului la 0,9rem. */
+
   font-weight: 600;
+  /* Face textul semibold. */
 
   transition: color 0.25s ease;
+  /* Animează schimbarea culorii în 0,25 secunde. */
 }
 
+
+/* Efectul aplicat linkurilor din meniu la trecerea cursorului. */
 .nav a:hover {
   color: var(--accent);
+  /* Evidențiază linkul folosind culoarea de accent. */
 }
 
 
-/* =========================
-   HERO
-========================= */
+/* ============================================================
+   SECȚIUNEA HERO
+   Este prima secțiune a paginii și conține numele și prezentarea.
+   ============================================================ */
 
+/* Selectează secțiunea cu clasa hero. */
 .hero {
   min-height: 100vh;
+  /* Face secțiunea cel puțin la fel de înaltă ca viewportul. */
 
   display: flex;
+  /* Activează Flexbox pentru conținutul secțiunii. */
+
   flex-direction: column;
+  /* Așază elementele copil unul sub altul. */
+
   justify-content: center;
+  /* Centrează vertical conținutul în spațiul disponibil. */
+
   align-items: center;
+  /* Centrează orizontal elementele. */
 
   text-align: center;
+  /* Centrează textul din interiorul elementelor. */
 
   padding: 100px 5% 60px;
+  /* Adaugă 100px sus, 5% lateral și 60px jos.
+     Spațiul de sus ajută la evitarea suprapunerii cu antetul. */
 
   position: relative;
+  /* Creează un reper pentru elementele poziționate în interior,
+     precum efectul de lumină definit prin ::before. */
 
   overflow: hidden;
+  /* Ascunde conținutul care depășește limitele secțiunii,
+     inclusiv părțile exterioare ale efectului luminos. */
 }
 
-/* Background glow */
 
+/* Creează un element decorativ înaintea conținutului secțiunii. */
 .hero::before {
   content: "";
+  /* Generează un pseudo-element fără text. */
 
   position: absolute;
+  /* Permite poziționarea independentă față de conținutul normal. */
 
   width: 600px;
+  /* Stabilește lățimea efectului luminos. */
+
   height: 600px;
+  /* Stabilește înălțimea efectului luminos. */
 
   top: 50%;
+  /* Mută centrul de referință vertical la jumătatea secțiunii. */
+
   left: 50%;
+  /* Mută centrul de referință orizontal la jumătatea secțiunii. */
 
   transform: translate(-50%, -50%);
+  /* Deplasează elementul înapoi cu jumătate din propria lățime
+     și înălțime, centrându-l exact. */
 
   background: radial-gradient(
     circle,
     rgba(56, 189, 248, 0.12),
     transparent 70%
   );
+  /* Creează o lumină circulară albastră, care devine transparentă
+     spre exterior. Opacitatea inițială este de 12%. */
 
   pointer-events: none;
+  /* Împiedică elementul decorativ să blocheze clicurile
+     sau interacțiunile cu elementele aflate dedesubt. */
 }
 
+
+/* Selectează titlul principal din secțiunea hero. */
 .hero h1 {
   position: relative;
+  /* Permite controlul poziționării titlului în raport cu
+     elementele sale și ajută la menținerea lui deasupra efectului. */
 
   font-size: clamp(3rem, 9vw, 7rem);
+  /* Dimensiunea fontului nu scade sub 3rem și nu depășește 7rem.
+     Valoarea preferată este 9% din lățimea viewportului. */
+
   line-height: 0.95;
+  /* Reduce spațiul vertical dintre rândurile titlului. */
 
   letter-spacing: -3px;
+  /* Apropie literele cu 3px pentru un aspect compact. */
 }
 
+
+/* Selectează fiecare span din titlul principal. */
 .hero h1 span {
   display: block;
+  /* Pune fiecare parte a numelui pe un rând separat. */
 }
 
+
+/* Selectează ultimul span din titlul principal. */
 .hero h1 span:last-child {
   color: var(--accent);
+  /* Colorează al doilea rând al numelui cu albastru. */
 }
 
+
+/* Selectează textul de prezentare din hero. */
 .subtitle {
   position: relative;
+  /* Poziționează textul în contextul său, deasupra decorului. */
 
   margin-top: 2rem;
+  /* Adaugă spațiu între nume și textul de prezentare. */
 
   color: var(--muted);
+  /* Folosește culoarea textului secundar. */
 
   font-size: clamp(1rem, 2vw, 1.2rem);
+  /* Fontul variază în funcție de ecran, dar rămâne între
+     1rem și 1,2rem. */
 }
 
 
-/* =========================
-   BUTTON
-========================= */
+/* ============================================================
+   BUTOANE
+   Stilul este reutilizat pentru linkurile care au clasa button.
+   ============================================================ */
 
+/* Selectează toate elementele cu clasa button. */
 .button {
   display: inline-block;
+  /* Permite aplicarea dimensiunilor și padding-ului,
+     păstrând elementul în fluxul textului. */
 
   margin-top: 2rem;
+  /* Adaugă spațiu deasupra butonului. */
 
   padding: 0.8rem 1.5rem;
+  /* Adaugă 0,8rem sus și jos, respectiv 1,5rem lateral. */
 
   background: var(--accent);
+  /* Aplică fundalul albastru. */
+
   color: #061018;
+  /* Folosește text foarte închis pentru contrast. */
 
   border-radius: 6px;
+  /* Rotunjește colțurile cu o rază de 6px. */
 
   font-weight: 700;
+  /* Face textul îngroșat. */
 
   transition:
     transform 0.25s ease,
     background 0.25s ease,
     box-shadow 0.25s ease;
+  /* Animează separat deplasarea, fundalul și umbra. */
 }
 
+
+/* Efectul vizual al butonului când cursorul este deasupra. */
 .button:hover {
   background: var(--accent-dark);
+  /* Întunecă fundalul butonului. */
 
   transform: translateY(-3px);
+  /* Ridică vizual butonul cu 3px. */
 
   box-shadow: 0 8px 25px rgba(56, 189, 248, 0.2);
+  /* Adaugă o umbră albastră discretă.
+     Valorile reprezintă deplasarea orizontală, verticală,
+     estomparea umbrei și culoarea ei. */
 }
 
 
-/* =========================
-   SECTIONS
-========================= */
+/* ============================================================
+   SECȚIUNI GENERALE
+   Reguli comune pentru secțiunile principale ale portofoliului.
+   ============================================================ */
 
+/* Selectează secțiunile care au clasa section. */
 .section {
   width: min(var(--max-width), 90%);
+  /* Lățimea este cea mai mică dintre 1100px și 90% din părinte.
+     Astfel, conținutul nu devine prea lat pe ecranele mari. */
 
   margin: 0 auto;
+  /* Elimină marginile verticale și centrează orizontal secțiunea. */
 
   padding: 100px 0;
+  /* Adaugă 100px spațiu interior sus și jos, fără padding lateral. */
 }
 
+
+/* Selectează titlurile h2 din secțiuni. */
 .section h2 {
   margin-bottom: 3rem;
+  /* Lasă spațiu între titlul secțiunii și conținut. */
 
   font-size: clamp(2rem, 5vw, 3rem);
+  /* Fontul variază odată cu lățimea ecranului,
+     între 2rem și 3rem. */
 
   letter-spacing: -1px;
+  /* Apropie literele cu 1px. */
 
   color: var(--text);
+  /* Folosește culoarea principală a textului. */
 }
 
+
+/* Adaugă simbolul decorativ înaintea titlurilor h2. */
 .section h2::before {
   content: "// ";
+  /* Introduce două bare oblice înaintea titlului. */
 
   color: var(--accent);
+  /* Colorează barele în albastru. */
 }
 
 
-/* =========================
-   ABOUT
-========================= */
+/* ============================================================
+   SECȚIUNEA DESPRE MINE
+   Aranjează fotografia și textul într-un layout cu două coloane.
+   ============================================================ */
 
+/* Selectează containerul care grupează fotografia și textul. */
 .about {
   display: grid;
+  /* Activează CSS Grid pentru organizarea elementelor. */
 
   grid-template-columns: 280px 1fr;
+  /* Prima coloană are 280px, iar a doua ocupă spațiul rămas. */
 
   gap: 4rem;
+  /* Adaugă spațiu între fotografie și text. */
 
   align-items: center;
+  /* Centrează vertical conținutul celor două coloane. */
 }
 
+
+/* Selectează fotografia din secțiunea despre mine. */
 .about img {
   width: 280px;
+  /* Stabilește lățimea fotografiei. */
+
   height: 280px;
+  /* Stabilește înălțimea fotografiei. */
 
   object-fit: cover;
+  /* Umple cadrul fără deformarea fotografiei;
+     părțile care depășesc cadrul sunt decupate. */
 
   border-radius: 12px;
+  /* Rotunjește colțurile fotografiei. */
 
   border: 1px solid var(--border);
+  /* Adaugă o bordură fină în jurul imaginii. */
 
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+  /* Creează o umbră întunecată sub și în jurul fotografiei. */
 }
 
+
+/* Selectează paragrafele din secțiunea despre mine. */
 .about p {
   margin-bottom: 1.5rem;
+  /* Adaugă spațiu sub fiecare paragraf. */
 
   color: var(--muted);
+  /* Folosește culoarea textului secundar. */
 
   font-size: 1.05rem;
+  /* Mărește ușor fontul față de dimensiunea de bază. */
 }
 
 
-/* =========================
-   CARDS
-========================= */
+/* ============================================================
+   CARDURI
+   Folosite la educație, competențe, proiecte, premii și interese.
+   ============================================================ */
 
+/* Selectează toate elementele care au clasa card. */
 .card {
   background: var(--surface);
+  /* Aplică fundalul semitransparent al cardului. */
 
   border: 1px solid var(--border);
+  /* Adaugă o bordură subțire. */
 
   border-radius: 10px;
+  /* Rotunjește colțurile cardului. */
 
   padding: 1.8rem;
+  /* Adaugă spațiu între conținut și marginile cardului. */
 
   margin-bottom: 1.5rem;
+  /* Lasă spațiu între acest card și următorul element. */
 
   transition:
     transform 0.25s ease,
     border-color 0.25s ease,
     background 0.25s ease;
+  /* Animează deplasarea, bordura și fundalul cardului. */
 }
 
+
+/* Efectul aplicat cardului când cursorul este deasupra. */
 .card:hover {
   transform: translateY(-4px);
+  /* Ridică vizual cardul cu 4px. */
 
   border-color: rgba(56, 189, 248, 0.35);
+  /* Schimbă bordura într-un albastru discret. */
 
   background: var(--surface-light);
+  /* Face fundalul cardului puțin mai luminos. */
 }
 
+
+/* Selectează titlurile h3 din carduri. */
 .card h3 {
   margin-bottom: 0.6rem;
+  /* Adaugă spațiu sub titlu. */
 
   font-size: 1.25rem;
+  /* Stabilește dimensiunea titlului la 1,25rem. */
 }
 
+
+/* Selectează paragrafele din carduri. */
 .card p {
   color: var(--muted);
+  /* Folosește culoarea textului secundar. */
 }
 
 
-/* =========================
-   EDUCATION
-========================= */
+/* ============================================================
+   EDUCAȚIE
+   Evidențiază anii sau perioadele de studiu.
+   ============================================================ */
 
+/* Selectează elementele care au clasa date. */
 .date {
   color: var(--accent) !important;
+  /* Evidențiază perioada cu albastru.
+     !important face regula să aibă prioritate față de multe
+     alte declarații concurente asupra aceleiași proprietăți. */
 
   font-size: 0.9rem;
+  /* Reduce dimensiunea textului perioadei. */
 
   font-weight: 700;
+  /* Face perioada îngroșată. */
 
   margin-bottom: 0.4rem;
+  /* Adaugă spațiu sub perioadă. */
 }
 
 
-/* =========================
-   SKILLS
-========================= */
+/* ============================================================
+   COMPETENȚE
+   Organizează cardurile într-o grilă cu două coloane.
+   ============================================================ */
 
+/* Selectează secțiunea care are id-ul skills. */
 #skills {
   display: grid;
+  /* Activează CSS Grid pentru secțiunea competențelor. */
 
   grid-template-columns: repeat(2, 1fr);
+  /* Creează două coloane egale. */
 
   gap: 1.5rem;
+  /* Stabilește distanța dintre elementele grilei. */
 }
 
+
+/* Selectează titlul h2 din secțiunea competențelor. */
 #skills h2 {
   grid-column: 1 / -1;
+  /* Întinde titlul de la prima linie a grilei
+     până la ultima linie disponibilă, ocupând ambele coloane. */
 
   margin-bottom: 1rem;
+  /* Reduce spațiul de sub titlul secțiunii. */
 }
 
+
+/* Selectează cardurile din secțiunea competențelor. */
 #skills .card {
   margin-bottom: 0;
+  /* Elimină marginea inferioară a cardurilor,
+     deoarece distanța este controlată de gap-ul grilei. */
 }
 
+
+/* Selectează elementele li din carduri. */
 .card li {
   position: relative;
+  /* Creează reperul de poziționare pentru marcatorul ::before. */
 
   padding-left: 1.2rem;
+  /* Lasă spațiu în stânga textului pentru marcatorul decorativ. */
 
   margin: 0.5rem 0;
+  /* Adaugă 0,5rem deasupra și dedesubtul fiecărui element. */
 
   color: var(--muted);
+  /* Colorează textul listei cu nuanța secundară. */
 }
 
+
+/* Adaugă un marcator decorativ înaintea fiecărui element din listă. */
 .card li::before {
   content: ">";
+  /* Afișează caracterul > înaintea textului. */
 
   position: absolute;
+  /* Scoate marcatorul din fluxul normal și permite poziționarea lui. */
+
   left: 0;
+  /* Așază marcatorul la marginea stângă a elementului li. */
 
   color: var(--accent);
+  /* Colorează marcatorul în albastru. */
 
   font-weight: bold;
+  /* Face marcatorul îngroșat. */
 }
 
 
-/* =========================
-   LANGUAGES
-========================= */
+/* ============================================================
+   LIMBI
+   Stilizează barele de progres folosite pentru nivelurile lingvistice.
+   ============================================================ */
 
+/* Selectează fiecare container al unei limbi. */
 .language {
   margin-bottom: 2rem;
+  /* Lasă spațiu între limbile afișate. */
 }
 
+
+/* Selectează paragraful din fiecare container language. */
 .language p {
   margin-bottom: 0.5rem;
+  /* Adaugă spațiu între denumirea limbii și bara de progres. */
 
   font-weight: 600;
+  /* Evidențiază denumirea limbii. */
 }
 
+
+/* Selectează elementele HTML progress. */
 progress {
   width: 100%;
+  /* Bara ocupă întreaga lățime disponibilă. */
+
   height: 10px;
+  /* Stabilește înălțimea barei la 10px. */
 
   appearance: none;
+  /* Elimină aspectul nativ implicit al browserului. */
+
   -webkit-appearance: none;
+  /* Aplică aceeași intenție în browserele bazate pe WebKit. */
 }
 
+
+/* Stilizează partea necompletată a barei în browsere WebKit. */
 progress::-webkit-progress-bar {
   background: var(--surface-light);
+  /* Aplică fundalul părții necompletate. */
 
   border-radius: 10px;
+  /* Rotunjește colțurile fundalului barei. */
 }
 
+
+/* Stilizează partea completată a barei în browsere WebKit. */
 progress::-webkit-progress-value {
   background: var(--accent);
+  /* Colorează progresul cu albastru. */
 
   border-radius: 10px;
+  /* Rotunjește colțurile părții completate. */
 }
 
+
+/* Stilizează partea completată în Firefox. */
 progress::-moz-progress-bar {
   background: var(--accent);
+  /* Aplică aceeași culoare de accent. */
 
   border-radius: 10px;
+  /* Rotunjește colțurile progresului. */
 }
 
 
-/* =========================
-   PROJECTS
-========================= */
+/* ============================================================
+   PROIECTE
+   Limitează lățimea cardului care prezintă un proiect.
+   ============================================================ */
 
+/* Selectează elementele care au simultan clasele card și project
+   sau orice element cu clasa project. */
 .project {
   max-width: 750px;
+  /* Cardul proiectului nu poate depăși lățimea de 750px. */
 }
 
+
+/* Selectează elementele strong din cardurile proiectelor. */
 .project strong {
   color: var(--text);
+  /* Evidențiază etichetele precum Tehnologii și Rol. */
 }
 
+
+/* Selectează butoanele din cardurile proiectelor. */
 .project .button {
   margin-top: 1rem;
+  /* Reduce spațiul de deasupra butonului din proiect. */
 }
 
 
-/* =========================
-   INTERESTS
-========================= */
+/* ============================================================
+   INTERESE
+   Așază interesele într-o grilă cu trei coloane.
+   ============================================================ */
 
+/* Selectează containerul care grupează interesele. */
 .interests {
   display: grid;
+  /* Activează CSS Grid. */
 
   grid-template-columns: repeat(3, 1fr);
+  /* Creează trei coloane de lățimi egale. */
 
   gap: 1rem;
+  /* Adaugă spațiu între cardurile cu interese. */
 }
 
+
+/* Selectează cardurile din grila de interese. */
 .interests .card {
   margin: 0;
+  /* Elimină marginile implicite ale cardurilor în această grilă. */
 
   text-align: center;
+  /* Centrează textul fiecărui interes. */
 
   color: var(--muted);
+  /* Folosește culoarea textului secundar. */
 
   font-weight: 600;
+  /* Evidențiază discret textul. */
 }
 
 
-/* =========================
+/* ============================================================
    CONTACT
-========================= */
+   Organizează datele de contact în două coloane.
+   ============================================================ */
 
+/* Selectează lista de contact. */
 .contact {
   display: grid;
+  /* Activează CSS Grid pentru elementele de contact. */
 
   grid-template-columns: repeat(2, 1fr);
+  /* Creează două coloane egale. */
 
   gap: 1rem;
+  /* Adaugă spațiu între casetele de contact. */
 }
 
+
+/* Selectează fiecare element li din lista de contact. */
 .contact li {
   background: var(--surface);
+  /* Aplică fundalul semitransparent. */
 
   border: 1px solid var(--border);
+  /* Adaugă o bordură discretă. */
 
   border-radius: 8px;
+  /* Rotunjește colțurile casetei. */
 
   padding: 1rem;
+  /* Adaugă spațiu interior. */
 
   transition: 0.25s ease;
+  /* Animează schimbările compatibile în 0,25 secunde. */
 }
 
+
+/* Schimbă aspectul casetei de contact la trecerea cursorului. */
 .contact li:hover {
   border-color: var(--accent);
+  /* Evidențiază bordura în albastru. */
 }
 
+
+/* Selectează linkurile din lista de contact. */
 .contact a {
   color: var(--muted);
+  /* Folosește culoarea textului secundar. */
 
   word-break: break-word;
+  /* Permite ruperea șirurilor lungi, precum adresele de e-mail,
+     pentru a evita depășirea casetei. */
 }
 
+
+/* Efectul aplicat linkurilor de contact la hover. */
 .contact a:hover {
   color: var(--accent);
+  /* Evidențiază linkul cu albastru. */
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* ============================================================
+   SUBSOL
+   Stilizează zona de la finalul paginii.
+   ============================================================ */
 
+/* Selectează elementul cu clasa footer. */
 .footer {
   padding: 2rem 5%;
+  /* Adaugă spațiu vertical și spațiu lateral în subsol. */
 
   text-align: center;
+  /* Centrează textul din subsol. */
 
   border-top: 1px solid var(--border);
+  /* Desenează o linie de separare deasupra subsolului. */
 
   color: var(--muted);
+  /* Folosește culoarea textului secundar. */
 
   font-size: 0.9rem;
+  /* Reduce puțin dimensiunea textului. */
 }
 
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* ============================================================
+   RESPONSIVE DESIGN — ECRANE DE MAXIMUM 800px
+   Aceste reguli adaptează pagina pentru ecrane mai înguste.
+   ============================================================ */
 
+/* Regulile din interior se aplică atunci când viewportul
+   are maximum 800px lățime. */
 @media (max-width: 800px) {
 
+  /* Selectează antetul pe ecrane de maximum 800px. */
   .header {
     padding: 0 4%;
+    /* Reduce spațiul lateral de la 5% la 4%. */
   }
 
+  /* Selectează meniul de navigare. */
   .nav {
     gap: 0.8rem;
+    /* Reduce distanța dintre linkuri pentru a economisi spațiu. */
   }
 
+  /* Selectează linkurile din meniu. */
   .nav a {
     font-size: 0.75rem;
+    /* Micșorează fontul linkurilor meniului. */
   }
 
+  /* Schimbă organizarea secțiunii despre mine. */
   .about {
     grid-template-columns: 1fr;
+    /* Înlocuiește cele două coloane cu una singură. */
 
     text-align: center;
+    /* Centrează textul secțiunii. */
   }
 
+  /* Selectează fotografia din secțiunea despre mine. */
   .about img {
     margin: 0 auto;
+    /* Centrează fotografia pe orizontală. */
   }
 
+  /* Schimbă grila competențelor. */
   #skills {
     grid-template-columns: 1fr;
+    /* Afișează cardurile competențelor pe o singură coloană. */
   }
 
+  /* Schimbă grila intereselor. */
   .interests {
     grid-template-columns: repeat(2, 1fr);
+    /* Afișează două coloane în loc de trei. */
   }
 
+  /* Schimbă grila de contact. */
   .contact {
     grid-template-columns: 1fr;
+    /* Afișează casetele de contact pe o singură coloană. */
   }
 }
 
 
+/* ============================================================
+   RESPONSIVE DESIGN — ECRANE DE MAXIMUM 550px
+   Ajustări suplimentare pentru telefoane și ecrane foarte mici.
+   ============================================================ */
+
+/* Regulile se aplică la o lățime de maximum 550px. */
 @media (max-width: 550px) {
 
+  /* Reorganizează antetul pe ecrane foarte înguste. */
   .header {
     height: auto;
+    /* Permite antetului să își adapteze înălțimea conținutului. */
 
     flex-direction: column;
+    /* Așază logo-ul, selectorul de limbă și meniul pe verticală. */
 
     gap: 0.7rem;
+    /* Adaugă spațiu între elementele antetului. */
 
     padding: 1rem 4%;
+    /* Adaugă spațiu interior sus-jos și lateral. */
   }
 
+  /* Selectează meniul de navigare. */
   .nav {
     flex-wrap: wrap;
+    /* Permite linkurilor să treacă pe rânduri noi dacă nu încap. */
 
     justify-content: center;
+    /* Centrează linkurile pe orizontală. */
   }
 
+  /* Micșorează titlul principal pe ecrane înguste. */
   .hero h1 {
     font-size: clamp(2.5rem, 14vw, 4rem);
+    /* Fontul se adaptează la ecran, dar rămâne între 2,5rem
+       și 4rem. 14vw reprezintă 14% din lățimea viewportului. */
 
     letter-spacing: -2px;
+    /* Reduce apropierea literelor de la -3px la -2px. */
   }
 
+  /* Ajustează spațierea tuturor secțiunilor. */
   .section {
     width: 90%;
+    /* Păstrează secțiunile la 90% din lățimea părintelui. */
 
     padding: 75px 0;
+    /* Reduce spațiul vertical de la 100px la 75px. */
   }
 
+  /* Afișează interesele într-o singură coloană. */
   .interests {
     grid-template-columns: 1fr;
+    /* Fiecare interes ocupă un rând întreg. */
   }
 }
 
 
-/* =========================
+/* ============================================================
    REDUCED MOTION
-========================= */
+   Respectă preferința utilizatorilor care reduc animațiile.
+   ============================================================ */
 
+/* Se activează dacă sistemul de operare sau browserul
+   indică preferința pentru mișcare redusă. */
 @media (prefers-reduced-motion: reduce) {
 
+  /* Selectează documentul HTML. */
   html {
     scroll-behavior: auto;
+    /* Dezactivează derularea lină și folosește comportamentul normal. */
   }
 
+  /* Selectează toate elementele și pseudo-elementele. */
   *,
   *::before,
   *::after {
     transition: none !important;
+    /* Dezactivează tranzițiile pentru a reduce mișcarea animată.
+       !important acordă prioritate acestei reguli. */
   }
 }
 
 
-/* =========================
-   SECTION SEPARATORS
-========================= */
+/* ============================================================
+   SEPARATOARE ÎNTRE SECȚIUNI
+   Creează o linie discretă între secțiunile principale.
+   ============================================================ */
 
+/* Selectează elementele cu clasa section care sunt copii direcți
+   ai elementului main. */
 main > .section {
   position: relative;
+  /* Creează un reper pentru eventuale elemente poziționate
+     în interiorul fiecărei secțiuni. */
 }
 
+
+/* Selectează o secțiune .section aflată imediat după
+   o altă secțiune .section, ambele fiind copii direcți ai lui main. */
 main > .section + .section::before {
   content: "";
+  /* Creează un pseudo-element decorativ fără text. */
 
   position: absolute;
+  /* Permite poziționarea liniei în raport cu secțiunea. */
+
   top: 0;
+  /* Așază linia la începutul secțiunii. */
+
   left: 0;
+  /* Așază linia la marginea stângă. */
 
   width: 100%;
+  /* Linia ocupă întreaga lățime a secțiunii. */
+
   height: 1px;
+  /* Linia are grosimea de 1px. */
 
   background: var(--border);
+  /* Folosește culoarea discretă a bordurilor. */
 }
 
-/* =========================
-   AWARDS (Copiat din Projects)
-========================= */
 
+/* ============================================================
+   DISTINCȚII ȘI PREMII
+   Refolosește aspectul proiectelor pentru cardurile cu diplome.
+   ============================================================ */
+
+/* Selectează cardurile care au clasa award. */
 .award {
-  max-width: 750px; /* Ca la proiecte */
-  margin: 0 auto 1.5rem auto; /* Centrat și spațiere */
+  max-width: 750px;
+  /* Limitează lățimea cardului la 750px, ca la proiecte. */
+
+  margin: 0 auto 1.5rem auto;
+  /* 0 sus, auto stânga-dreapta pentru centrare,
+     1,5rem jos și auto în dreapta. */
 }
 
+
+/* Selectează titlurile din cardurile cu premii. */
 .award h3 {
   font-size: 1.25rem;
+  /* Stabilește dimensiunea titlului. */
+
   color: var(--text);
+  /* Folosește culoarea principală a textului. */
+
   margin-bottom: 0.6rem;
+  /* Adaugă spațiu sub titlu. */
 }
 
+
+/* Selectează paragrafele din cardurile cu premii. */
 .award p {
   color: var(--muted);
+  /* Colorează descrierea cu nuanța secundară. */
+
   margin-bottom: 0.5rem;
+  /* Adaugă spațiu sub fiecare paragraf. */
 }
 
+
+/* Selectează textul îngroșat din cardurile cu premii. */
 .award strong {
   color: var(--text);
+  /* Evidențiază etichete precum Anul. */
 }
 
+
+/* Selectează butoanele din cardurile cu premii. */
 .award .button {
   margin-top: 1rem;
+  /* Adaugă spațiu deasupra butonului. */
+
   display: inline-block;
+  /* Permite aplicarea padding-ului și păstrează butonul
+     în fluxul normal al textului. */
 }
 
-/* =============
-   RO/EN site
-===============*/
 
+/* ============================================================
+   SELECTORUL DE LIMBĂ — ROMÂNĂ / ENGLEZĂ
+   Stilizează butoanele RO și EN din antet.
+   ============================================================ */
+
+/* Selectează containerul selectorului de limbă. */
 .language-switch {
   display: flex;
+  /* Așază linkurile RO și EN unul lângă altul. */
+
   align-items: center;
+  /* Centrează vertical linkurile în container. */
+
   gap: 4px;
+  /* Adaugă 4px între cele două linkuri. */
+
   padding: 4px;
+  /* Adaugă spațiu între linkuri și marginea containerului. */
+
   border: 1px solid rgba(255, 255, 255, 0.12);
+  /* Desenează o bordură albă foarte discretă. */
+
   border-radius: 999px;
+  /* Folosește o rază mare pentru a obține un container oval. */
+
   background: rgba(255, 255, 255, 0.04);
+  /* Aplică un fundal alb aproape transparent. */
 }
 
+
+/* Selectează linkurile RO și EN din selectorul de limbă. */
 .language-switch a {
   padding: 7px 11px;
+  /* Adaugă 7px vertical și 11px orizontal în interiorul linkului. */
+
   border-radius: 999px;
-  color: var(--text-color, #cdd6f4);
+  /* Rotunjește linkurile pentru a crea aspectul de pastilă. */
+
+  color: var(--text, #cdd6f4);
+  /* Folosește variabila --text; dacă nu există,
+     utilizează culoarea alternativă #cdd6f4. */
+
   text-decoration: none;
+  /* Elimină sublinierea linkurilor. */
+
   font-size: 0.8rem;
+  /* Micșorează textul butoanelor de limbă. */
+
   font-weight: 700;
+  /* Face abrevierile RO și EN îngroșate. */
+
   transition: background 0.2s ease, color 0.2s ease;
+  /* Animează schimbarea fundalului și a culorii textului
+     în 0,2 secunde. */
 }
 
+
+/* Efectul aplicat linkurilor selectorului de limbă la hover. */
 .language-switch a:hover {
   background: rgba(255, 255, 255, 0.08);
+  /* Face fundalul linkului puțin mai vizibil. */
 }
 
+
+/* Selectează linkul care are simultan clasele language-switch
+   în părinte și active pe elementul a. */
 .language-switch a.active {
   background: #cba6f7;
+  /* Evidențiază limba selectată cu o nuanță mov deschis. */
+
   color: #1e1e2e;
+  /* Folosește text închis pentru contrast cu fundalul mov. */
 }
