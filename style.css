@@ -35,13 +35,24 @@ html {
   scroll-padding-top: var(--header-height);
 }
 
-body {
-  background: var(--bg);
-  color: var(--text);
 
+body {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(
+      rgba(8, 11, 16, 0.68),
+      rgba(8, 11, 16, 0.78)
+    ),
+    url("imagini/fundal.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
-
   min-height: 100vh;
 }
 
