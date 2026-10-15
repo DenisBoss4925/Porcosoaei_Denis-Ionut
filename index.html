@@ -1,57 +1,169 @@
+
 <!DOCTYPE html>
+<!-- Declară documentul ca fiind scris în standardul HTML5. -->
+
 <html lang="ro">
+<!-- Elementul rădăcină al paginii.
+     lang="ro" indică limba română pentru browser și cititoarele de ecran. -->
+
 <head>
+  <!-- Conține metadatele paginii, titlul și legăturile către resurse externe. -->
+
   <meta charset="UTF-8">
+  <!-- Permite afișarea corectă a caracterelor Unicode,
+       inclusiv ă, â, î, ș și ț. -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Adaptează lățimea paginii la ecranul dispozitivului.
+       initial-scale=1 stabilește nivelul inițial de zoom. -->
+
   <title>Denis-Ionuț Porcosoaei — Portofoliu</title>
+  <!-- Titlul afișat în fila browserului și folosit de obicei
+       ca titlu al paginii în rezultatele motoarelor de căutare. -->
+
   <link rel="stylesheet" href="style.css">
+  <!-- Încarcă fișierul CSS extern care controlează culorile,
+       dimensiunile, poziționarea și aspectul întregului site. -->
 </head>
 
 <body>
+  <!-- Începe conținutul vizibil al paginii. -->
 
-  <!-- ANTET -->
+  <!-- =====================================================
+       ANTETUL PAGINII
+       Conține logo-ul, selectorul de limbă și meniul principal.
+       ===================================================== -->
+
   <header class="header">
-<a class="logo" href="#hero">DP</a>
+    <!-- Element semantic pentru antet.
+         Clasa header este folosită pentru stilizarea din CSS. -->
 
-<div class="language-switch">
-  <a href="index.html" class="active" lang="ro" aria-current="page">RO</a>
-  <a href="indexEN.html" lang="en">EN</a>
-</div>
+    <a class="logo" href="#hero">DP</a>
+    <!-- Logo-ul format din inițialele DP.
+         href="#hero" duce la elementul care are id="hero".
+         Clasa logo îi aplică aspectul definit în CSS. -->
+
+    <!-- Selectorul dintre versiunea română și cea engleză. -->
+    <div class="language-switch">
+      <!-- Containerul grupează cele două linkuri de limbă. -->
+
+      <a href="index.html" class="active"
+         lang="ro" aria-current="page">RO</a>
+      <!-- Deschide versiunea română.
+           class="active" evidențiază limba selectată.
+           lang="ro" indică limba linkului.
+           aria-current="page" indică pagina curentă. -->
+
+      <a href="indexEN.html" lang="en">EN</a>
+      <!-- Deschide versiunea în engleză.
+           lang="en" indică limba paginii de destinație. -->
+    </div>
+
+    <!-- Meniul principal de navigare. -->
     <nav class="nav" aria-label="Navigare principală">
+      <!-- nav grupează linkurile de navigare.
+           aria-label oferă meniului un nume accesibil. -->
+
       <a href="#about">Despre mine</a>
+      <!-- Navighează la secțiunea cu id="about". -->
+
       <a href="#education">Educație</a>
+      <!-- Navighează la secțiunea cu id="education". -->
+
       <a href="#skills">Competențe</a>
+      <!-- Navighează la secțiunea cu id="skills". -->
+
       <a href="#languages">Limbi</a>
+      <!-- Navighează la secțiunea cu id="languages". -->
+
       <a href="#projects">Proiecte</a>
+      <!-- Navighează la secțiunea cu id="projects". -->
+
       <a href="#awards">Distincții și premii</a>
+      <!-- Navighează la secțiunea cu id="awards". -->
+
       <a href="#interests">Interese</a>
+      <!-- Navighează la secțiunea cu id="interests". -->
+
       <a href="#contact">Contact</a>
+      <!-- Navighează la secțiunea cu id="contact". -->
     </nav>
   </header>
 
+
+  <!-- =====================================================
+       CONȚINUTUL PRINCIPAL
+       main grupează secțiunile principale ale portofoliului.
+       ===================================================== -->
+
   <main>
 
-    <!-- SECȚIUNEA PRINCIPALĂ -->
+    <!-- ===================================================
+         SECȚIUNEA PRINCIPALĂ — HERO
+         Este prima secțiune pe care o vede vizitatorul.
+         =================================================== -->
+
     <section class="hero" id="hero">
+      <!-- section grupează conținutul introductiv.
+           id="hero" permite navigarea către această secțiune. -->
+
       <h1>
+        <!-- Titlul principal al paginii; h1 este titlul de nivel 1. -->
+
         <span>DENIS-IONUȚ</span>
+        <!-- Primul rând al numelui.
+             span permite stilizarea separată a acestei părți. -->
+
         <span>PORCOSOAEI</span>
+        <!-- Al doilea rând al numelui.
+             În CSS, ultimul span primește culoarea de accent. -->
       </h1>
-      <p class="subtitle">Elev la profilul Matematică-Informatică / Programator / Pasionat de Linux</p>
+
+      <p class="subtitle">
+        <!-- Paragraf de prezentare, stilizat prin clasa subtitle. -->
+        Elev la profilul Matematică-Informatică / Programator / Pasionat de Linux
+      </p>
+
       <a class="button" href="#projects">Vezi proiectele</a>
+      <!-- Link stilizat ca un buton.
+           La apăsare, duce vizitatorul la secțiunea Proiecte. -->
     </section>
 
-    <!-- DESPRE MINE -->
+
+    <!-- ===================================================
+         SECȚIUNEA DESPRE MINE
+         Prezintă informații personale și fotografia.
+         =================================================== -->
+
     <section class="section" id="about">
+      <!-- Clasa section aplică stilurile comune secțiunilor.
+           id="about" identifică secțiunea pentru meniul de navigare. -->
+
       <h2>DESPRE MINE</h2>
+      <!-- Titlul secțiunii; h2 este un titlu de nivel 2. -->
+
       <div class="about">
-        <img src="imagini/poza.jpg" alt="Portretul lui Denis-Ionuț Porcosoaei">
+        <!-- Container pentru fotografie și text.
+             CSS Grid aranjează cele două elemente în coloane. -->
+
+        <img src="imagini/poza.jpg"
+             alt="Portretul lui Denis-Ionuț Porcosoaei">
+        <!-- Încarcă fotografia din folderul imagini.
+             src indică locația fișierului.
+             alt descrie fotografia pentru cititoarele de ecran
+             și este afișat dacă imaginea nu poate fi încărcată. -->
+
         <div>
+          <!-- Container pentru paragrafele de prezentare. -->
+
           <p>
+            <!-- Primul paragraf despre interesele și profilul școlar. -->
             Sunt elev la profilul Matematică-Informatică și sunt interesat
             de programare, tehnologie și sisteme de operare.
           </p>
+
           <p>
+            <!-- Al doilea paragraf descrie calitățile și obiectivele. -->
             Sunt curios, perseverent și atent la detalii. Îmi place să învăț
             lucruri noi și să găsesc soluții logice la probleme, dorindu-mi
             să-mi dezvolt în continuare competențele în domeniul IT.
@@ -60,196 +172,545 @@
       </div>
     </section>
 
-    <!-- EDUCAȚIE -->
+
+    <!-- ===================================================
+         SECȚIUNEA EDUCAȚIE
+         Prezintă instituțiile de învățământ și perioadele.
+         =================================================== -->
+
     <section class="section" id="education">
+      <!-- id="education" este destinația linkului Educație. -->
+
       <h2>EDUCAȚIE</h2>
+      <!-- Titlul secțiunii despre studiile efectuate. -->
 
       <div class="card">
+        <!-- Cardul pentru liceu; clasa card aplică designul comun. -->
+
         <p class="date">2024 – Prezent</p>
+        <!-- Perioada studiilor, evidențiată prin clasa date. -->
+
         <h3>Colegiul „Vasile Lovinescu”, Fălticeni</h3>
+        <!-- Numele instituției de învățământ. -->
+
         <p>Profil: Matematică-Informatică</p>
+        <!-- Specializarea studiată. -->
       </div>
 
       <div class="card">
+        <!-- Cardul pentru studiile gimnaziale. -->
+
         <p class="date">2020 – 2024</p>
+        <!-- Perioada studiilor gimnaziale. -->
+
         <h3>Școala Gimnazială Râșca</h3>
+        <!-- Numele școlii gimnaziale. -->
       </div>
     </section>
 
-    <!-- COMPETENȚE -->
+
+    <!-- ===================================================
+         SECȚIUNEA COMPETENȚE
+         Prezintă cunoștințele de programare și tehnologie.
+         =================================================== -->
+
     <section class="section" id="skills">
+      <!-- id="skills" permite accesul din meniul principal. -->
+
       <h2>COMPETENȚE</h2>
+      <!-- Titlul secțiunii despre competențe. -->
 
       <div class="card">
+        <!-- Primul card prezintă limbajele și tehnologiile web. -->
+
         <h3>Programare</h3>
+        <!-- Titlul categoriei de competențe. -->
+
         <ul>
+          <!-- Listă neordonată a limbajelor și tehnologiilor. -->
+
           <li>C++ (nivel intermediar)</li>
+          <!-- Element de listă pentru C++. -->
+
           <li>HTML</li>
+          <!-- HTML definește structura paginilor web. -->
+
           <li>CSS</li>
+          <!-- CSS controlează aspectul și stilizarea paginilor web. -->
         </ul>
       </div>
 
       <div class="card">
+        <!-- Al doilea card prezintă competențele tehnice. -->
+
         <h3>Tehnologie</h3>
+        <!-- Titlul categoriei de competențe tehnice. -->
+
         <ul>
+          <!-- Listă cu domeniile tehnice cunoscute. -->
+
           <li>Linux</li>
+          <!-- Cunoștințe despre sistemele de operare Linux. -->
+
           <li>Git / GitHub</li>
+          <!-- Git gestionează versiunile codului;
+               GitHub permite găzduirea și colaborarea asupra proiectelor. -->
+
           <li>Componente hardware și depanare</li>
+          <!-- Cunoștințe despre componente și identificarea problemelor. -->
+
           <li>Instalarea și configurarea sistemelor de operare</li>
+          <!-- Instalarea și configurarea sistemelor de operare. -->
+
           <li>Configurarea programelor</li>
+          <!-- Instalarea și configurarea aplicațiilor. -->
+
           <li>Microsoft Office</li>
+          <!-- Utilizarea aplicațiilor pentru documente și prezentări. -->
+
           <li>Grafică digitală</li>
+          <!-- Realizarea sau editarea materialelor grafice digitale. -->
         </ul>
       </div>
     </section>
 
-    <!-- LIMBI -->
+
+    <!-- ===================================================
+         SECȚIUNEA LIMBI
+         Prezintă limbile cunoscute și nivelurile declarate.
+         =================================================== -->
+
     <section class="section" id="languages">
+      <!-- id="languages" este destinația linkului Limbi. -->
+
       <h2>LIMBI</h2>
-      <!-- Nivelurile sunt reprezentate pe o scară de la 0 la 6: A1, A2, B1, B2, C1, C2 -->
+      <!-- Titlul secțiunii despre competențele lingvistice. -->
+
+      <!-- Scara utilizată pentru bare:
+           1 = A1, 2 = A2, 3 = B1, 4 = B2, 5 = C1, 6 = C2.
+           Valorile reprezintă o scală vizuală, nu un test de limbă. -->
 
       <div class="language">
+        <!-- Containerul pentru limba română. -->
+
         <p>Română — Limbă maternă</p>
+        <!-- Denumirea limbii și nivelul declarat. -->
+
         <progress value="6" max="6">Limbă maternă</progress>
+        <!-- Bara de progres este completă: valoarea este 6 din 6.
+             Textul dintre taguri servește ca alternativă textuală. -->
       </div>
 
       <div class="language">
+        <!-- Containerul pentru limba engleză. -->
+
         <p>Engleză — B2</p>
+        <!-- Nivelul declarat pentru limba engleză. -->
+
         <progress value="4" max="6">B2</progress>
+        <!-- Afișează 4 unități dintr-un total de 6. -->
       </div>
 
       <div class="language">
+        <!-- Containerul pentru limba franceză. -->
+
         <p>Franceză — A1</p>
+        <!-- Nivelul declarat pentru limba franceză. -->
+
         <progress value="1" max="6">A1</progress>
+        <!-- Afișează 1 unitate dintr-un total de 6. -->
       </div>
     </section>
 
-    <!-- PROIECTE -->
+
+    <!-- ===================================================
+         SECȚIUNEA PROIECTE
+         Prezintă proiectele realizate.
+         =================================================== -->
+
     <section class="section" id="projects">
+      <!-- id="projects" permite navigarea directă la proiecte. -->
+
       <h2>PROIECTE</h2>
+      <!-- Titlul secțiunii. -->
 
       <article class="card project">
+        <!-- article reprezintă un element de conținut independent.
+             Clasele card și project îi aplică stilurile corespunzătoare. -->
+
         <h3>DDEBREMCONSTRUCT</h3>
-        <p>Un site web realizat pentru prezentarea unei companii de construcții și a serviciilor sale.</p>
+        <!-- Numele proiectului web. -->
+
+        <p>
+          Un site web realizat pentru prezentarea unei companii de construcții și a serviciilor sale.
+        </p>
+        <!-- Descrierea scopului site-ului. -->
+
         <p><strong>Tehnologii:</strong> HTML, CSS</p>
+        <!-- strong evidențiază eticheta Tehnologii. -->
+
         <p><strong>Rol:</strong> Dezvoltare web</p>
-        <a class="button" href="https://ddebremconstruct.com/" target="_blank" rel="noopener noreferrer">Vizitează site-ul</a>
+        <!-- Prezintă rolul în cadrul proiectului. -->
+
+        <a class="button"
+           href="https://ddebremconstruct.com/"
+           target="_blank"
+           rel="noopener noreferrer">Vizitează site-ul</a>
+        <!-- Deschide site-ul proiectului într-o filă nouă.
+             target="_blank" solicită deschiderea într-o filă nouă.
+             rel="noopener noreferrer" limitează accesul paginii
+             deschise la fereastra de origine și nu trimite referer-ul. -->
       </article>
     </section>
 
-    <!-- DISTINCȚII ȘI PREMII -->
-    <section class="section" id="awards">
-      <h2>DISTINCȚII ȘI PREMII</h2>
 
-      <!-- PREMIUL 1 -->
+    <!-- ===================================================
+         SECȚIUNEA DISTINCȚII ȘI PREMII
+         Fiecare card prezintă o diplomă sau o participare.
+         =================================================== -->
+
+    <section class="section" id="awards">
+      <!-- id="awards" permite navigarea la această secțiune. -->
+
+      <h2>DISTINCȚII ȘI PREMII</h2>
+      <!-- Titlul secțiunii cu diplome și certificate. -->
+
+
+      <!-- PREMIUL 1: POSTER DIGITAL -->
+
       <div class="card award">
+        <!-- Card pentru premiul de la concursul de astronomie. -->
+
         <h3>Premiul I — Poster digital</h3>
+        <!-- Titlul distincției. -->
+
         <p>
           Premiul I pentru realizarea unui poster digital în cadrul concursului
           „Astronomia din perspectiva unui începător”.
         </p>
+        <!-- Descrierea premiului obținut. -->
+
         <p><strong>Anul:</strong> 2026</p>
-        <a class="button" href="imagini/diploma-locul-1.jpg" target="_blank" rel="noopener noreferrer">Vezi diploma</a>
+        <!-- Anul în care a fost acordată distincția. -->
+
+        <a class="button"
+           href="imagini/diploma-locul-1.jpg"
+           target="_blank"
+           rel="noopener noreferrer">Vezi diploma</a>
+        <!-- Deschide imaginea diplomei într-o filă nouă. -->
       </div>
 
-      <!-- PREMIUL 2 -->
+
+      <!-- PREMIUL 2: CERTIFICAT CARMEN SYLVA -->
+
       <div class="card award">
+        <!-- Card pentru primul certificat Carmen Sylva. -->
+
         <h3>Certificat de participare — Simpozionul Carmen Sylva</h3>
+        <!-- Titlul certificatului. -->
+
         <p>Participare la Simpozionul Carmen Sylva 2026.</p>
+        <!-- Descrierea participării. -->
+
         <p><strong>Anul:</strong> 2026</p>
-        <a class="button" href="imagini/Diploma1.pdf" target="_blank" rel="noopener noreferrer">Vezi diploma</a>
+        <!-- Anul participării. -->
+
+        <a class="button"
+           href="imagini/Diploma1.pdf"
+           target="_blank"
+           rel="noopener noreferrer">Vezi diploma</a>
+        <!-- Deschide fișierul PDF al diplomei într-o filă nouă. -->
       </div>
 
-      <!-- PREMIUL 3 -->
+
+      <!-- PREMIUL 3: AL DOILEA CERTIFICAT CARMEN SYLVA -->
+
       <div class="card award">
+        <!-- Card pentru al doilea certificat Carmen Sylva. -->
+
         <h3>Certificat de participare — Simpozionul Carmen Sylva</h3>
+        <!-- Titlul certificatului. -->
+
         <p>Participare la Simpozionul Carmen Sylva 2026.</p>
+        <!-- Descrierea participării. -->
+
         <p><strong>Anul:</strong> 2026</p>
-        <a class="button" href="imagini/Diploma2.pdf" target="_blank" rel="noopener noreferrer">Vezi diploma</a>
+        <!-- Anul participării. -->
+
+        <a class="button"
+           href="imagini/Diploma2.pdf"
+           target="_blank"
+           rel="noopener noreferrer">Vezi diploma</a>
+        <!-- Deschide al doilea PDF. -->
       </div>
 
-      <!-- PREMIUL 4 -->
+
+      <!-- PREMIUL 4: SIMPOZION DE MATEMATICĂ -->
+
       <div class="card award">
+        <!-- Card pentru participarea la simpozionul de matematică. -->
+
         <h3>Simpozionul „Să cunoaștem matematicienii lumii”</h3>
-        <p>Participare la ediția a VIII-a a simpozionului regional/interjudețean, organizat de Liceul Teoretic „Gelu Voievod” din Gilău.</p>
+        <!-- Numele evenimentului. -->
+
+        <p>
+          Participare la ediția a VIII-a a simpozionului regional/interjudețean,
+          organizat de Liceul Teoretic „Gelu Voievod” din Gilău.
+        </p>
+        <!-- Descrierea evenimentului și a organizatorului. -->
+
         <p><strong>Anul:</strong> 2026</p>
-        <a class="button" href="imagini/Diploma3.jpg" target="_blank" rel="noopener noreferrer">Vezi diploma</a>
+        <!-- Anul participării. -->
+
+        <a class="button"
+           href="imagini/Diploma3.jpg"
+           target="_blank"
+           rel="noopener noreferrer">Vezi diploma</a>
+        <!-- Deschide fotografia diplomei. -->
       </div>
 
-      <!-- PREMIUL 5 -->
+
+      <!-- PREMIUL 5: VERS, EMOȚIE, CULOARE -->
+
       <div class="card award">
+        <!-- Card pentru certificatul de participare la concursul local. -->
+
         <h3>Concursul local „Vers, emoție, culoare”</h3>
-        <p>Certificat de participare în cadrul Programului național „Săptămâna Verde”.</p>
+        <!-- Numele concursului. -->
+
+        <p>
+          Certificat de participare în cadrul Programului național „Săptămâna Verde”.
+        </p>
+        <!-- Explică în ce context a avut loc participarea. -->
+
         <p><strong>Anul:</strong> 2024</p>
-        <a class="button" href="imagini/Diploma4.jpg" target="_blank" rel="noopener noreferrer">Vezi diploma</a>
+        <!-- Anul participării. -->
+
+        <a class="button"
+           href="imagini/Diploma4.jpg"
+           target="_blank"
+           rel="noopener noreferrer">Vezi diploma</a>
+        <!-- Deschide imaginea certificatului. -->
       </div>
 
-      <!-- PREMIUL 6 -->
+
+      <!-- PREMIUL 6: PROIECTUL SNAC D.A.R. -->
+
       <div class="card award">
+        <!-- Card pentru activitatea de voluntariat caritabil. -->
+
         <h3>Proiectul SNAC D.A.R. — Târg de Crăciun</h3>
-        <p>Certificat de voluntariat pentru participarea la activități caritabile în cadrul proiectului „Dialogul Altruismului și Recunoștinței”.</p>
+        <!-- Titlul proiectului de voluntariat. -->
+
+        <p>
+          Certificat de voluntariat pentru participarea la activități caritabile
+          în cadrul proiectului „Dialogul Altruismului și Recunoștinței”.
+        </p>
+        <!-- Descrierea activității de voluntariat. -->
+
         <p><strong>Anul:</strong> 2025</p>
-        <a class="button" href="imagini/Diploma5.jpg" target="_blank" rel="noopener noreferrer">Vezi diploma</a>
+        <!-- Anul participării. -->
+
+        <a class="button"
+           href="imagini/Diploma5.jpg"
+           target="_blank"
+           rel="noopener noreferrer">Vezi diploma</a>
+        <!-- Deschide imaginea certificatului de voluntariat. -->
       </div>
 
-      <!-- PREMIUL 7 -->
+
+      <!-- PREMIUL 7: TÂRGURI DE CRĂCIUN ȘI MĂRȚIȘOR -->
+
       <div class="card award">
+        <!-- Card pentru voluntariatul din anul școlar 2024–2025. -->
+
         <h3>Târguri de Crăciun și Mărțișor</h3>
-        <p>Certificat de voluntariat în cadrul programului Strategiei Naționale de Acțiune Comunitară (SNAC D.A.R.), pentru anul școlar 2024–2025.</p>
+        <!-- Numele activităților de voluntariat. -->
+
+        <p>
+          Certificat de voluntariat în cadrul programului Strategiei Naționale
+          de Acțiune Comunitară (SNAC D.A.R.), pentru anul școlar 2024–2025.
+        </p>
+        <!-- Descrierea activităților și a programului. -->
+
         <p><strong>Anul:</strong> 2025</p>
-        <a class="button" href="imagini/Diploma6.jpg" target="_blank" rel="noopener noreferrer">Vezi diploma</a>
+        <!-- Anul asociat certificatului. -->
+
+        <a class="button"
+           href="imagini/Diploma6.jpg"
+           target="_blank"
+           rel="noopener noreferrer">Vezi diploma</a>
+        <!-- Deschide imaginea certificatului. -->
       </div>
 
-      <!-- PREMIUL 8 -->
+
+      <!-- PREMIUL 8: CONCURSUL DE LOGO ERASMUS+ -->
+
       <div class="card award">
+        <!-- Card pentru participarea la concursul de logo. -->
+
         <h3>Erasmus+ — Concurs de logo-uri</h3>
-        <p>Participare la concursul de creare a logo-ului pentru proiectul „Fantastic Beasts in Our Neighbourhood” (2F for the Planet).</p>
+        <!-- Titlul activității Erasmus+. -->
+
+        <p>
+          Participare la concursul de creare a logo-ului pentru proiectul
+          „Fantastic Beasts in Our Neighbourhood” (2F for the Planet).
+        </p>
+        <!-- Descrierea concursului și numele proiectului. -->
+
         <p><strong>Anul:</strong> 2026</p>
-        <a class="button" href="imagini/Diploma7.jpg" target="_blank" rel="noopener noreferrer">Vezi diploma</a>
+        <!-- Anul participării. -->
+
+        <a class="button"
+           href="imagini/Diploma7.jpg"
+           target="_blank"
+           rel="noopener noreferrer">Vezi diploma</a>
+        <!-- Deschide imaginea certificatului de participare. -->
       </div>
 
-      <!-- PREMIUL 9 -->
+
+      <!-- PREMIUL 9: PROIECTUL RESET -->
+
       <div class="card award">
+        <!-- Card pentru proiectul caritabil RESET. -->
+
         <h3>Proiectul caritabil „RESET”</h3>
-        <p>Certificat pentru participarea activă la proiectul inițiat de Consiliul Școlar al Elevilor.</p>
+        <!-- Titlul proiectului. -->
+
+        <p>
+          Certificat pentru participarea activă la proiectul inițiat
+          de Consiliul Școlar al Elevilor.
+        </p>
+        <!-- Descrierea participării la proiect. -->
+
         <p><strong>Anul:</strong> 2026</p>
-        <a class="button" href="imagini/Diploma8.jpg" target="_blank" rel="noopener noreferrer">Vezi diploma</a>
+        <!-- Anul participării. -->
+
+        <a class="button"
+           href="imagini/Diploma8.jpg"
+           target="_blank"
+           rel="noopener noreferrer">Vezi diploma</a>
+        <!-- Deschide imaginea certificatului. -->
       </div>
 
     </section>
 
-    <!-- INTERESE -->
+
+    <!-- ===================================================
+         SECȚIUNEA INTERESE
+         Prezintă domeniile care îl interesează pe autor.
+         =================================================== -->
+
     <section class="section" id="interests">
+      <!-- id="interests" este destinația linkului Interese. -->
+
       <h2>INTERESE</h2>
+      <!-- Titlul secțiunii. -->
+
       <div class="interests">
+        <!-- Containerul în care CSS Grid aranjează cardurile. -->
+
         <div class="card">Linux</div>
+        <!-- Interes pentru sistemele de operare Linux. -->
+
         <div class="card">Tehnologie și calculatoare</div>
+        <!-- Interes pentru tehnologie și hardware. -->
+
         <div class="card">Programare</div>
+        <!-- Interes pentru dezvoltarea de programe. -->
+
         <div class="card">Dezvoltare web</div>
+        <!-- Interes pentru realizarea site-urilor web. -->
+
         <div class="card">Jocuri video</div>
+        <!-- Interes pentru jocuri video. -->
+
         <div class="card">Istorie și geopolitică</div>
+        <!-- Interes pentru istorie și relații geopolitice. -->
+
         <div class="card">Sisteme de operare și noutăți IT</div>
+        <!-- Interes pentru sistemele de operare și actualitățile IT. -->
       </div>
     </section>
 
-    <!-- CONTACT -->
+
+    <!-- ===================================================
+         SECȚIUNEA CONTACT
+         Oferă modalități prin care vizitatorii pot lua legătura.
+         =================================================== -->
+
     <section class="section" id="contact">
+      <!-- id="contact" permite navigarea directă la contact. -->
+
       <h2>CONTACT</h2>
+      <!-- Titlul secțiunii de contact. -->
 
       <ul class="contact">
-        <li><a href="mailto:denisporcosoaei@protonmail.com">E-mail: denisporcosoaei@protonmail.com</a></li>
-        <li><a href="tel:+40735299937">Telefon: +40 735 299 937</a></li>
-        <li><a href="https://wa.me/40735299937" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-        <li><a href="https://github.com/DenisBoss4925" target="_blank" rel="noopener noreferrer">GitHub: DenisBoss4925</a></li>
+        <!-- Listă neordonată stilizată ca o grilă de casete. -->
+
+        <li>
+          <!-- Casetă pentru adresa de e-mail. -->
+
+          <a href="mailto:denisporcosoaei@protonmail.com">
+            E-mail: denisporcosoaei@protonmail.com
+          </a>
+          <!-- mailto: deschide aplicația de e-mail implicită
+               și completează adresa destinatarului. -->
+        </li>
+
+        <li>
+          <!-- Casetă pentru numărul de telefon. -->
+
+          <a href="tel:+40735299937">
+            Telefon: +40 735 299 937
+          </a>
+          <!-- tel: permite inițierea unui apel pe dispozitive
+               și în aplicații care acceptă acest tip de link. -->
+        </li>
+
+        <li>
+          <!-- Casetă pentru WhatsApp. -->
+
+          <a href="https://wa.me/40735299937"
+             target="_blank"
+             rel="noopener noreferrer">WhatsApp</a>
+          <!-- Deschide conversația WhatsApp asociată numărului.
+               wa.me folosește numărul în format internațional,
+               fără semnul + sau spații. -->
+        </li>
+
+        <li>
+          <!-- Casetă pentru profilul GitHub. -->
+
+          <a href="https://github.com/DenisBoss4925"
+             target="_blank"
+             rel="noopener noreferrer">GitHub: DenisBoss4925</a>
+          <!-- Deschide profilul GitHub într-o filă nouă.
+               Acolo pot fi prezentate proiectele și codul sursă. -->
+        </li>
       </ul>
     </section>
 
   </main>
+  <!-- Sfârșitul conținutului principal al paginii. -->
 
-  <!-- SUBSOL -->
+
+  <!-- =====================================================
+       SUBSOLUL PAGINII
+       Afișează informația de copyright.
+       ===================================================== -->
+
   <footer class="footer">
+    <!-- Element semantic pentru subsolul site-ului.
+         Clasa footer controlează aspectul prin CSS. -->
+
     <p>&copy; 2026 Denis-Ionuț Porcosoaei</p>
+    <!-- &copy; este o entitate HTML care afișează simbolul ©.
+         Anul și numele identifică autorul portofoliului. -->
   </footer>
 
 </body>
+<!-- Sfârșitul conținutului paginii. -->
+
 </html>
+<!-- Sfârșitul documentului HTML. -->
