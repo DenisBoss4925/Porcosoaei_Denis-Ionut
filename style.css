@@ -43,7 +43,7 @@ body {
       rgba(8, 11, 16, 0.68),
       rgba(8, 11, 16, 0.78)
     ),
-    url("imagini/fundal.jpg");
+    url("imagini/fundal.png");
 
   background-size: cover;
   background-position: center;
